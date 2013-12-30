@@ -21,7 +21,7 @@ This deliberate usurpation of defined concepts of equality is normally counter-p
 
 Performing a reference-only equality-comparison is easy in all .NET languages, with `ReferenceEquals()` and the `==` operator applied to `object` references both performing such a comparison.  
 
-While most cases could work with the `GetHashCode()` override as sub-optimal but workable, the same hash-code being produced for objects we are no longer considering equal can lead to excessive hash-collisions. It may also change on mutations we should ignore (because identity never mutates). For this reason we want to call back to the implementation of `GetHashCode()` defined on `object`, bypassing the virtual call mechanism. This is impossible to do directly in C# and most other .NET languages, but is trivial in CIL; we just use `call` where one would normally use `callvirt`.
+While most cases could work with the `GetHashCode()` override as sub-optimal but workable, the same hash-code being produced for objects we are no longer considering equal can lead to excessive hash-collisions. It may also change on mutations we should ignore (because identity never mutates). For this reason we want to call back to the implementation of `GetHashCode()` defined on `object`, bypassing the virtual call mechanism. This is impossible to do directly in C# and most other .NET languages, but is trivial in CIL; we just use `call` where one would normally use `callvirt`.  
 
 This can be done in C# with the use of reflection:
 
@@ -48,4 +48,14 @@ This can be done in C# with the use of reflection:
       return RootHashCode(obj);
     }
 
-However, with the four methods necessary to override all being among the few cases where CIL is actually simpler than C#, it's handier just to write the whole library in CIL, though the NUnit tests are written in C#.
+However, with the four methods necessary to override all being among the few cases where CIL is actually simpler than C#, it's handier just to write the whole library in CIL, though the NUnit tests are written in C#.  
+
+# Building Notes
+
+The project can be built with MonoDevelop or SharpDevelop with the [ILAsmBinding add-in](https://github.com/icsharpcode/SharpDevelop/tree/master/samples/ILAsmBinding).  
+
+FIXME: Add notes on other IDEs (or versions thereof).  
+
+The NUnit project references the DLL in the output directory rather than the project, as at least one IDE has problems between different bindings, resulting in build errors if the whole project is built when one project references the other. The first build will need the *AisA* project to be manually built first, but after that this will not be necessary.  
+
+You cannot port the code directly to C#, VB.NET or most other .NET languages. When examined in most assembly browsers like ILSpy, dotPeek, etc. the code will appear to be a normal call to `GetHashCode()` which would then compile to `callvirt` rather than `call`.
