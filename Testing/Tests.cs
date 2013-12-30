@@ -16,6 +16,7 @@
 using AisA;
 using NUnit.Framework;
 
+// Analysis disable CheckNamespace
 namespace AisATesting
 {
     [TestFixture]
