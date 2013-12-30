@@ -17,6 +17,9 @@ using AisA;
 using NUnit.Framework;
 
 // Analysis disable CheckNamespace
+using System.Collections.Generic;
+
+
 namespace AisATesting
 {
     [TestFixture]
@@ -57,6 +60,14 @@ namespace AisATesting
             Assert.AreEqual(0, reqo.GetHashCode(null));
             Assert.True(reqo.Equals(null, null));
             Assert.False(reqo.Equals(null, "abc"));
+        }
+        [Test]
+        public void NotMatchAsKeys()
+        {
+            HashSet<string> strings = new HashSet<string>(new ReferenceEqualityComparer<string>());
+            for(int i = 0; i != 10; ++i)
+                strings.Add(1.ToString());
+            Assert.AreEqual(10, strings.Count);
         }
     }
 }
