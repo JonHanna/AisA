@@ -12,6 +12,7 @@
     <AssemblyName>AisA</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <UseMSBuildEngine>False</UseMSBuildEngine>
+    <ReleaseVersion>1.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release</OutputPath>

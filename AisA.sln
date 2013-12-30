@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{B4EC64DC-6D44-11DD-AAB0-C9A155D89593}") = "AisA", "AisA\AisA.ilproj", "{D80B3419-AE6B-44BB-8494-276E8513DAA2}"
@@ -198,5 +198,69 @@ Global
 		$36.MessageStyle = $37
 		$37.LineAlign = 0
 		$36.inheritsSet = Mono
+		$0.TextStylePolicy = $38
+		$38.inheritsSet = null
+		$38.scope = application/xml
+		$0.XmlFormattingPolicy = $39
+		$39.inheritsSet = Mono
+		$39.inheritsScope = application/xml
+		$39.scope = application/xml
+		$0.TextStylePolicy = $40
+		$40.inheritsSet = null
+		$40.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $41
+		$41.IndentSwitchBody = True
+		$41.AlignEmbeddedIfStatements = False
+		$41.SimplePropertyFormatting = ForceNewLine
+		$41.AutoPropertyFormatting = ForceOneLine
+		$41.IndentPreprocessorDirectives = False
+		$41.AnonymousMethodBraceStyle = NextLine
+		$41.PropertyBraceStyle = NextLine
+		$41.PropertyGetBraceStyle = NextLine
+		$41.PropertySetBraceStyle = NextLine
+		$41.SimpleGetBlockFormatting = ForceOneLine
+		$41.SimpleSetBlockFormatting = ForceOneLine
+		$41.EventBraceStyle = NextLine
+		$41.EventAddBraceStyle = NextLine
+		$41.EventRemoveBraceStyle = NextLine
+		$41.StatementBraceStyle = NextLine
+		$41.ElseNewLinePlacement = NewLine
+		$41.CatchNewLinePlacement = NewLine
+		$41.FinallyNewLinePlacement = NewLine
+		$41.BeforeMethodDeclarationParentheses = False
+		$41.BeforeMethodCallParentheses = False
+		$41.BeforeConstructorDeclarationParentheses = False
+		$41.BeforeIndexerDeclarationBracket = False
+		$41.BeforeDelegateDeclarationParentheses = False
+		$41.AfterDelegateDeclarationParameterComma = True
+		$41.NewParentheses = False
+		$41.IfParentheses = False
+		$41.WhileParentheses = False
+		$41.ForParentheses = False
+		$41.ForeachParentheses = False
+		$41.CatchParentheses = False
+		$41.SwitchParentheses = False
+		$41.LockParentheses = False
+		$41.UsingParentheses = False
+		$41.SpacesBeforeBrackets = False
+		$41.BlankLinesBeforeUsings = 1
+		$41.BlankLinesAroundRegion = 0
+		$41.BlankLinesInsideRegion = 0
+		$41.MethodCallArgumentWrapping = WrapIfTooLong
+		$41.MethodDeclarationParameterWrapping = WrapIfTooLong
+		$41.AlignToFirstMethodDeclarationParameter = False
+		$41.IndexerDeclarationParameterWrapping = WrapIfTooLong
+		$41.AlignToFirstIndexerDeclarationParameter = False
+		$41.IndexerArgumentWrapping = WrapIfTooLong
+		$41.inheritsSet = Mono
+		$41.inheritsScope = text/x-csharp
+		$41.scope = text/x-csharp
+		$0.TextStylePolicy = $42
+		$42.inheritsSet = null
+		$42.scope = application/config+xml
+		$0.XmlFormattingPolicy = $43
+		$43.inheritsSet = null
+		$43.scope = application/config+xml
+		version = 1.0
 	EndGlobalSection
 EndGlobal
