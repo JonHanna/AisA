@@ -25,6 +25,7 @@ While most cases could work with the `GetHashCode()` override as sub-optimal but
 
 This can be done in C# with the use of reflection:
 
+    :::c#
     private static readonly Func<T, int> RootHashCode = CreateRootHashCode();
     private static Func<T, int> CreateRootHashCode()
     {
