@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!--
+AisA.xml
+
+Author:
+    Jon Hanna <jon@hackcraft.net>
+
+© 2013 Jon Hanna
+
+Licensed under the EUPL, Version 1.1 only (the “Licence”).
+You may not use, modify or distribute this work except in compliance with the Licence.
+You may obtain a copy of the Licence at:
+<http://joinup.ec.europa.eu/software/page/eupl/licence-eupl>
+A copy is also distributed with this source code.
+Unless required by applicable law or agreed to in writing, software distributed under the
+Licence is distributed on an “AS IS” basis, without warranties or conditions of any kind.
+-->
+<doc>
+    <assembly>
+        <name>AisA</name>
+    </assembly>
+    <members>
+        <member name="T:AisA.ReferenceEqualityComparer">
+            <summary>
+            An implementation of <see cref="T:System.Collections.IEqualityComparer"/> which ignores all overridden definitions of equality and compares based on identity alone.
+            </summary>
+            <remarks>
+            This deliberate usurpation of defined concepts of equality is normally counter-productive. It is however useful in the following cases:
+            <list type="number">
+            <item><description>
+            A hash-based structure such as a <see cref="T:System.Collections.Generic.Dictionary`2"/> is used to associate objects with another which may be equivalent to another using the same dictionary.
+            </description></item>
+            <item><description>
+            A hash-based structure such as a <see cref="T:System.Collections.Generic.Dictionary`2"/> is used to associate objects with another which may mutate in such a way as to change the hash code based on its defined concept of equality.
+            </description></item>
+            <item><description>
+            As a (risky) optimisation, when it is known that no other equivalent objects exist, and therefore this object is the only one that would return true for an equality check. E.g. this would be the case with strings that had all been interned with <see cref="M:System.String.Intern(System.String)"/>.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:AisA.ReferenceEqualityComparer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AisA.ReferenceEqualityComparer"/> class.
+            </summary>
+        </member>
+        <member name="M:AisA.ReferenceEqualityComparer.Equals(System.Object,System.Object)">
+            <summary>Determines whether two references refer to the same object.</summary>
+            <returns>true if <paramref name="x"/> and <paramref name="y"/> reference the same objectsame; otherwise, false.</returns>
+            <param name="x">The first reference to compare.</param>
+            <param name="y">The second reference to compare.</param>
+        </member>
+        <member name="M:AisA.ReferenceEqualityComparer.GetHashCode(System.Object)">
+            <summary>Returns a hash code for the specified object based on object identity.</summary>
+            <returns>A hash code for the specified object, or zero if <paramref name="obj"/> is null.</returns>
+            <param name="obj">The <see cref="T:System.Object"/> for which a hash code is to be returned.</param>
+            <remarks>This ignores any override of <see cref="M:System.Object.GetHashCode"/> and returns the value that would be returned, if any such overrides did not exist.</remarks>
+        </member>
+        <member name="T:AisA.ReferenceEqualityComparer`1">
+            <summary>
+            An implementation of <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> which ignores all overridden definitions of equality and compares based on identity alone.
+            </summary>
+            <remarks>
+            This deliberate usurpation of defined concepts of equality is normally counter-productive. It is however useful in the following cases:
+            <list type="number">
+            <item><description>
+            A hash-based structure such as a <see cref="T:System.Collections.Generic.Dictionary`2"/> is used to associate objects with another which may be equivalent to another using the same dictionary.
+            </description></item>
+            <item><description>
+            A hash-based structure such as a <see cref="T:System.Collections.Generic.Dictionary`2"/> is used to associate objects with another which may mutate in such a way as to change the hash code based on its defined concept of equality.
+            </description></item>
+            <item><description>
+            As a (risky) optimisation, when it is known that no other equivalent objects exist, and therefore this object is the only one that would return true for an equality check. E.g. this would be the case with strings that had all been interned with <see cref="M:System.String.Intern(System.String)"/>.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:AisA.ReferenceEqualityComparer`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AisA.ReferenceEqualityComparer`1"/> class.
+            </summary>
+        </member>
+        <member name="M:AisA.ReferenceEqualityComparer`1.Equals(`0,`0)">
+            <summary>Determines whether two references refer to the same object.</summary>
+            <returns>true if <paramref name="x"/> and <paramref name="y"/> reference the same objectsame; otherwise, false.</returns>
+            <param name="x">The first reference of type <typeparamref name="T"/> to compare.</param>
+            <param name="y">The second reference of type <typeparamref name="T"/> to compare.</param>
+        </member>
+        <member name="M:AisA.ReferenceEqualityComparer`1.GetHashCode(`0)">
+            <summary>Returns a hash code for the specified object based on object identity.</summary>
+            <returns>A hash code for the specified object, or zero if <paramref name="obj"/> is null.</returns>
+            <param name="obj">The <typeparamref name="T"/> for which a hash code is to be returned.</param>
+            <remarks>This ignores any override of <see cref="M:System.Object.GetHashCode"/> and returns the value that would be returned, if any such overrides did not exist.</remarks>
+        </member>
+    </members>
+</doc>
