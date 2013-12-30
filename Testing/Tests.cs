@@ -15,11 +15,9 @@
 
 using AisA;
 using NUnit.Framework;
-
-// Analysis disable CheckNamespace
 using System.Collections.Generic;
 
-
+// Analysis disable CheckNamespace
 namespace AisATesting
 {
     [TestFixture]
@@ -68,6 +66,21 @@ namespace AisATesting
             for(int i = 0; i != 10; ++i)
                 strings.Add(1.ToString());
             Assert.AreEqual(10, strings.Count);
+        }
+        [Test]
+        public void MatchesObjectHashCode()
+        {
+            object obj = new object();
+            Assert.AreEqual(obj.GetHashCode(), new ReferenceEqualityComparer<object>().GetHashCode(obj));
+            Assert.AreEqual(obj.GetHashCode(), new ReferenceEqualityComparer().GetHashCode(obj));
+        }
+        [Test]
+        public void TwoBoxedStructsAreDifferent()
+        {
+            object x = 1;
+            object y = 1;
+            Assert.AreNotEqual(new ReferenceEqualityComparer<object>().GetHashCode(x),
+                new ReferenceEqualityComparer<object>().GetHashCode(y));
         }
     }
 }
