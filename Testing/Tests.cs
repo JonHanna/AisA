@@ -13,9 +13,11 @@
 // Unless required by applicable law or agreed to in writing, software distributed under the
 // Licence is distributed on an “AS IS” basis, without warranties or conditions of any kind.
 
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 using AisA;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 // Analysis disable CheckNamespace
 namespace AisATesting
@@ -88,6 +90,12 @@ namespace AisATesting
             string x = "abc";
             Assert.AreNotEqual(x.GetHashCode(), x.RootHashCode());
             Assert.AreEqual(x.RootHashCode(), new ReferenceEqualityComparer<string>().GetHashCode(x));
+        }
+        [Test]
+        public void ResCorrect()
+        {
+            Assembly asse = Assembly.GetAssembly(typeof(ReferenceEqualityComparer));
+            Assert.AreEqual(new Version("1.1.5114.28942"), asse.GetName().Version);
         }
     }
 }

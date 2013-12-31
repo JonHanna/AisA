@@ -11,9 +11,11 @@
     <UsePartialTypes>false</UsePartialTypes>
     <AssemblyName>AisA</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <UseMSBuildEngine>False</UseMSBuildEngine>
     <ReleaseVersion>1.0</ReleaseVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <SignAssembly>true</SignAssembly>
+    <DelaySign>true</DelaySign>
+    <AssemblyOriginatorKeyFile>hackcraftPublic.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release</OutputPath>
@@ -34,5 +36,28 @@
       <Link>AisA-Licence.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="AisA.res" />
+    <None Include="hackcraftPublic.snk" />
   </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <Target Name="CreateManifestResourceNames" />
+  <Target Name="CoreCompile" Inputs="$(MSBuildAllProjects);@(Compile);" Outputs="@(IntermediateAssembly);$(NonExistentFile);">
+    <GetFrameworkPath>
+      <Output TaskParameter="Path" PropertyName="FrameworkPath" />
+    </GetFrameworkPath>
+    <PropertyGroup>
+      <IlAsmCommand>"$(FrameworkPath)\ilasm" /NOLOGO /DLL /OUTPUT:"@(IntermediateAssembly)" /RESOURCE:AisA.res</IlAsmCommand>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <IlAsmCommand>$(IlAsmCommand) /DEBUG </IlAsmCommand>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <IlAsmCommand>$(IlAsmCommand) /OPTIMIZE </IlAsmCommand>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(AssemblyOriginatorKeyFile)' != '' ">
+      <IlAsmCommand>$(IlAsmCommand) /KEY:"$(AssemblyOriginatorKeyFile)" </IlAsmCommand>
+    </PropertyGroup>
+    <Exec Command="$(IlAsmCommand) @(Compile-&gt;'&quot;%(FullPath)&quot;', ' ')" Outputs="@(IntermediateAssembly)" />
+    <CallTarget Targets="$(TargetsTriggeredByCompilation)" Condition="'$(TargetsTriggeredByCompilation)' != ''" />
+  </Target>
 </Project>
