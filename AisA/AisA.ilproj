@@ -26,7 +26,8 @@
     <Compile Include="RootHashCodes.il" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AisA.xml">
+    <None Include="doc\AisA.xml">
+      <Link>AisA.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
