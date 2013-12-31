@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>AisA</id>
+        <version>1.1.5114</version>
+        <title>A is A</title>
+        <authors>Jon Hanna</authors>
+        <licenseUrl>http://joinup.ec.europa.eu/software/page/eupl/licence-eupl</licenseUrl>
+        <projectUrl>https://bitbucket.org/JonHanna/aisa</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>Implementations of IEqualityComparer and IEqualityComparer&lt;T&gt; which ignore all overridden definitions of equality and compare based on identity alone.
+This deliberate usurpation of defined concepts of equality is normally counter-productive. It is however useful in the following cases:
+1. A hash-based structure such as a Dictionary&lt;TKey, TValue&gt; is used to associate objects with another which may be equivalent to another using the same dictionary.
+2. A hash-based structure such as a Dictionary&lt;TKey, TValue&gt; is used to associate objects with another which may mutate in such a way as to change the hash code based on its defined concept of equality.
+3. As a (risky) optimisation, when it is known that no other equivalent objects exist, and therefore this object is the only one that would return true for an equality check. E.g. this would be the case with strings that had all been interned with string.Intern().</description>
+        <summary>Implementations of IEqualityComparer and IEqualityComparer&lt;T&gt; which ignore all overridden definitions of equality and compare based on identity alone.</summary>
+        <copyright>© 2013 Jon Hanna</copyright>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="..\bin\Release\*" target="lib" />
+        <file src="..\..\EUPL v.1.1 - Licence.pdf" target="EUPL v.1.1 - Licence.pdf" />
+    </files>
+</package>

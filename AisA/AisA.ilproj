@@ -32,10 +32,6 @@
       <Link>AisA.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="doc\AisA-Licence.txt">
-      <Link>AisA-Licence.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="AisA.res" />
     <None Include="hackcraftPublic.snk" />
   </ItemGroup>
