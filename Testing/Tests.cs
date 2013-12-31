@@ -82,5 +82,12 @@ namespace AisATesting
             Assert.AreNotEqual(new ReferenceEqualityComparer<object>().GetHashCode(x),
                 new ReferenceEqualityComparer<object>().GetHashCode(y));
         }
+        [Test]
+        public void RootHashCode()
+        {
+            string x = "abc";
+            Assert.AreNotEqual(x.GetHashCode(), x.RootHashCode());
+            Assert.AreEqual(x.RootHashCode(), new ReferenceEqualityComparer<string>().GetHashCode(x));
+        }
     }
 }

@@ -92,5 +92,21 @@ Licence is distributed on an “AS IS” basis, without warranties or conditions
             <param name="obj">The <typeparamref name="T"/> for which a hash code is to be returned.</param>
             <remarks>This ignores any override of <see cref="M:System.Object.GetHashCode"/> and returns the value that would be returned, if any such overrides did not exist.</remarks>
         </member>
+        <member name="T:AisA.RootHashCodes">
+            <summary>
+            Provides access to the hash code defined by <see cref="T:System.Object"/>, ignoring any overrides.
+            </summary>
+        </member>
+        <member name="M:AisA.RootHashCodes.RootHashCode``1(``0)">
+            <summary>
+            Obtains the hash code defined by <see cref="T:System.Object"/>, ignoring any overrides.
+            </summary>
+            <param name="obj">The object for which to obtain the hash code.</param>
+            <returns>The hash code.</returns>
+            <remarks>
+            <para>As an extension method, in Visual Basic and C#, you can call this method as an instance method on any object of a reference type. When using this syntax, omit the parameter.</para>
+            <para>This method can only be called on a reference type, or a value type that is already boxed. Allowing it to be called on value types would be meaningless, as it would be boxed to a new object, with a new root hash code each time.</para>
+            </remarks>
+        </member>
     </members>
 </doc>

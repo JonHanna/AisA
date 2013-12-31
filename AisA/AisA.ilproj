@@ -10,9 +10,10 @@
     <RootNamespace>AisA</RootNamespace>
     <UsePartialTypes>false</UsePartialTypes>
     <AssemblyName>AisA</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <UseMSBuildEngine>False</UseMSBuildEngine>
     <ReleaseVersion>1.0</ReleaseVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release</OutputPath>
@@ -22,6 +23,7 @@
   <ItemGroup>
     <Compile Include="ReferenceEqualityComparer.il" />
     <Compile Include="AssemblyInfo.il" />
+    <Compile Include="RootHashCodes.il" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AisA.xml">
