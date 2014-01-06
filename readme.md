@@ -5,7 +5,7 @@ This deliberate usurpation of defined concepts of equality is normally counter-p
 
 1. A hash-based structure such as a `Dictionary<TKey, TValue>` is used to associate objects with an object which may be equivalent to another using the same dictionary.
 2. A hash-based structure such as a `Dictionary<TKey, TValue>` is used to associate objects with an object which may mutate in such a way as to change the hash code based on its defined concept of equality.
-3. As a (risky) optimisation, when it is known that no other equivalent objects exist, and therefore this object is the only one that would return true for an equality check. E.g. this would be the case with strings that had all been interned with string.Intern().
+3. As a (risky) optimisation, when it is known that no other equivalent objects exist, and therefore this object is the only one that would return true for an equality check. E.g. this would be the case with strings that had all been interned with string.Intern(), or atomised by an `XmlNameTable`.
 
 # License
 
