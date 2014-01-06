@@ -3,8 +3,8 @@
 Implementations of `IEqualityComparer` and `IEqualityComparer<T>` which ignore all overridden definitions of equality and compare based on identity alone.  
 This deliberate usurpation of defined concepts of equality is normally counter-productive. It is however useful in the following cases:
 
-1. A hash-based structure such as a `Dictionary<TKey, TValue>` is used to associate objects with another which may be equivalent to another using the same dictionary.
-2. A hash-based structure such as a `Dictionary<TKey, TValue>` is used to associate objects with another which may mutate in such a way as to change the hash code based on its defined concept of equality.
+1. A hash-based structure such as a `Dictionary<TKey, TValue>` is used to associate objects with an object objects which may be equivalent to another using the same dictionary.
+2. A hash-based structure such as a `Dictionary<TKey, TValue>` is used to associate objects with an object which may mutate in such a way as to change the hash code based on its defined concept of equality.
 3. As a (risky) optimisation, when it is known that no other equivalent objects exist, and therefore this object is the only one that would return true for an equality check. E.g. this would be the case with strings that had all been interned with string.Intern().
 
 # License
