@@ -17,6 +17,12 @@ This deliberate usurpation of defined concepts of equality is normally counter-p
 > Unless required by applicable law or agreed to in writing, software distributed under the  
 > Licence is distributed on an “AS IS” basis, without warranties or conditions of any kind.
 
+# NuGet Package
+
+A is A  is available as a [NuGet package](https://www.nuget.org/packages/AisA)
+
+Run `Install-Package AisA` in the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) or search for “AisA” in your IDE’s package management plug-in.
+
 # How it Works.
 
 Performing a reference-only equality-comparison is easy in all .NET languages, with `ReferenceEquals()` and the `==` operator applied to `object` references both performing such a comparison.  
